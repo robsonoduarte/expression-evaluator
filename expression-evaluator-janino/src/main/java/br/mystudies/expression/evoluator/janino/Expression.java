@@ -1,6 +1,5 @@
 package br.mystudies.expression.evoluator.janino;
 
-import java.util.List;
 
 
 public class Expression<T> {
@@ -8,6 +7,9 @@ public class Expression<T> {
 
 	private String expression;
 	private Class<T> expressionType;
+	private String[] parameterNames;
+	private Class[] parameterTypes;
+
 
 
 
@@ -31,16 +33,14 @@ public class Expression<T> {
 	}
 
 
-
-	public List<String> getParameterNames() {
-		// TODO Auto-generated method stub
-		return null;
+	public String[] getParameterNames() {
+		return parameterNames;  // FIXME: NPE
 	}
 
 
-	public <T> List<Class<T>> getParameterTypes() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public Class[] getParameterTypes() {
+		return parameterTypes;
 	}
 
 
@@ -63,46 +63,20 @@ public class Expression<T> {
 		}
 
 		public Builder parameterNames(String... parameterNames) {
-			// TODO Auto-generated method stub
+			expression.parameterNames = parameterNames;
 			return this;
 		}
 
-		public <T> Builder parameterTypes(Class<T>... parameterTypes) {
-			// TODO Auto-generated method stub
+		public Builder parameterTypes(Class... parameterTypes) {
+			expression.parameterTypes = parameterTypes;
 			return this;
 		}
 
 		public Expression create() {
-			// TODO Auto-generated method stub
 			return expression;
 		}
 
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
